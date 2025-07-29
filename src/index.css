@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 248 250 252;
+    --background: 0 0% 100%;
     --foreground: 203 24% 10%;
 
     --card: 255 255 255;
@@ -36,11 +36,11 @@ All colors MUST be HSL.
     --warning-foreground: 255 255 255;
     --info: 210 100% 56%;
     --info-foreground: 255 255 255;
-    
+
     /* Professional gradients */
     --gradient-primary: linear-gradient(135deg, hsl(219 95% 28%), hsl(219 95% 35%));
     --gradient-card: linear-gradient(180deg, hsl(255 255 255), hsl(248 250 252));
-    
+
     /* Shadows */
     --shadow-elegant: 0 1px 3px 0 hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
     --shadow-card: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
@@ -117,5 +117,6 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background-color: hsl(0 0% 100%);
   }
 }

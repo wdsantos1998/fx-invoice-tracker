@@ -63,7 +63,7 @@ International Co,30000,CAD,2024-02-05,2024-03-05,,`;
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="border-b border-border bg-card">
         <div className="container mx-auto px-4 py-6">
