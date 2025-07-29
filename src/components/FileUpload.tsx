@@ -77,6 +77,12 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onDataLoaded, loading })
     event.preventDefault();
   };
 
+  const handleClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
   return (
     <div className="space-y-4">
       <Card>
@@ -85,7 +91,16 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onDataLoaded, loading })
             className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-8 text-center hover:border-primary/50 transition-colors cursor-pointer bg-white"
             onDrop={handleDrop}
             onDragOver={handleDragOver}
-            onClick={() => fileInputRef.current?.click()}
+            onClick={handleClick}
+            onTouchEnd={handleClick}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleClick();
+              }
+            }}
           >
             <div className="flex flex-col items-center space-y-4">
               {fileName ? (
@@ -102,7 +117,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onDataLoaded, loading })
                   <div>
                     <p className="text-lg font-medium">Upload Invoice CSV</p>
                     <p className="text-sm text-muted-foreground">
-                      Drop your CSV file here or click to browse
+                      Tap to select a CSV file
                     </p>
                   </div>
                 </>
@@ -113,7 +128,14 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onDataLoaded, loading })
               </div>
 
               {!loading && (
-                <Button variant="outline" size="sm">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleClick();
+                  }}
+                >
                   {fileName ? 'Change File' : 'Select File'}
                 </Button>
               )}
@@ -123,10 +145,11 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onDataLoaded, loading })
           <input
             ref={fileInputRef}
             type="file"
-            accept=".csv"
+            accept=".csv,text/csv"
             onChange={handleFileSelect}
             className="hidden"
             disabled={loading}
+            capture="environment"
           />
         </CardContent>
       </Card>
