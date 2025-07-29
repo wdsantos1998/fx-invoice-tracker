@@ -119,4 +119,9 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
     background-color: hsl(0 0% 100%);
   }
+
+  body, html, #root {
+    background: #fff !important;
+    background-color: #fff !important;
+  }
 }
