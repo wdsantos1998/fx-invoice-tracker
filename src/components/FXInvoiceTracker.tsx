@@ -26,7 +26,7 @@ export const FXInvoiceTracker: React.FC = () => {
       setRawData(data);
       setProcessedData(processed);
       setActiveTab('overview');
-      
+
       toast({
         title: "Data loaded successfully",
         description: `Processed ${processed.length} invoices with FX calculations`,
@@ -68,13 +68,23 @@ International Co,30000,CAD,2024-02-05,2024-03-05,,`;
       <div className="border-b border-border bg-card">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
-            <div>
-              <h1 className="text-3xl font-bold text-foreground">FX Invoice Tracker</h1>
-              <p className="text-muted-foreground mt-1">
-                Multi-currency invoice management with real-time FX calculations
-              </p>
-            </div>
-            
+                      <div>
+                          <h1 className="text-3xl font-bold text-foreground">FX Invoice Tracker</h1>
+                          <p className="text-muted-foreground mt-1">
+                              Multi-currency invoice management with real-time FX calculations
+                          </p>
+                          <a
+                              href="https://www.linkedin.com/in/wesley-dos-santos-0316341b0/"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex gap-x-2 pt-2 items-center no-underline text-muted-foreground mt-1 hover:opacity-80"
+                          >
+                              <img src="/linkedin-icon.svg" alt="Logo" className="h-5 w-5" />
+                              <span>Prototyped by Wesley dos Santos</span>
+                          </a>
+
+                      </div>
+
             {processedData.length === 0 && (
               <Button variant="outline" onClick={downloadSampleCSV} size="sm">
                 <FileText className="h-4 w-4 mr-2" />
@@ -90,7 +100,7 @@ International Co,30000,CAD,2024-02-05,2024-03-05,,`;
           /* Initial Upload State */
           <div className="max-w-2xl mx-auto">
             <FileUpload onDataLoaded={handleDataLoad} loading={loading} />
-            
+
             {loading && (
               <Card className="mt-6">
                 <CardContent className="flex items-center justify-center py-8">
@@ -131,9 +141,9 @@ International Co,30000,CAD,2024-02-05,2024-03-05,,`;
                     <BarChart3 className="h-4 w-4 mr-2" />
                     Analytics
                   </Button>
-                  
+
                   <Separator orientation="vertical" className="mx-2 h-8" />
-                  
+
                   <Button
                     variant="outline"
                     onClick={() => {
