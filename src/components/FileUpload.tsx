@@ -80,9 +80,9 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onDataLoaded, loading })
   return (
     <div className="space-y-4">
       <Card>
-        <CardContent className="p-6">
+        <CardContent className="p-6 bg-white">
           <div
-            className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-8 text-center hover:border-primary/50 transition-colors cursor-pointer"
+            className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-8 text-center hover:border-primary/50 transition-colors cursor-pointer bg-white"
             onDrop={handleDrop}
             onDragOver={handleDragOver}
             onClick={() => fileInputRef.current?.click()}
@@ -107,11 +107,11 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onDataLoaded, loading })
                   </div>
                 </>
               )}
-              
+
               <div className="text-xs text-muted-foreground">
                 Required columns: Client, Invoice_Amount, Currency, Invoice_Date, Due_Date
               </div>
-              
+
               {!loading && (
                 <Button variant="outline" size="sm">
                   {fileName ? 'Change File' : 'Select File'}
@@ -119,7 +119,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onDataLoaded, loading })
               )}
             </div>
           </div>
-          
+
           <input
             ref={fileInputRef}
             type="file"

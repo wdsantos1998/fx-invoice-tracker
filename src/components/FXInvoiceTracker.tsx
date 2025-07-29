@@ -65,11 +65,11 @@ International Co,30000,CAD,2024-02-05,2024-03-05,,`;
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <div className="border-b border-border bg-card">
+      <div className="border-b border-border bg-white">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
                       <div>
-                          <h1 className="text-3xl font-bold text-foreground">FX Invoice Tracker</h1>
+                          <h1 className="text-3xl font-bold text-foreground bg-white">FX Invoice Tracker</h1>
                           <p className="text-muted-foreground mt-1">
                               Multi-currency invoice management with real-time FX calculations
                           </p>
